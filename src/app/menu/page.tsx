@@ -19,25 +19,19 @@ const Menu: React.FC = () => {
       },
     }}
   >
-    <Typography variant="h5" align="center" color="white" sx={{ marginTop: '20px', marginBottom: '20px', color:'black', background:'white', fontFamily:'Montserrat' }}>EliteFit</Typography> {/* Título "Gym" */}
-    <List>
-      <ListItem button>
-        <ListItemIcon>
-          <SportsHandballIcon />
-        </ListItemIcon>
-        <ListItemText primary="Calendario" />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <FitnessCenterIcon />
-        </ListItemIcon>
-        <ListItemText primary="Rutinas" />
-      </ListItem>
-      <ListItem button>
+    <Typography variant="h5" align="center" color="white" sx={{ marginTop: '20px', marginBottom: '20px', color:'black', background:'white', fontFamily:'Montserrat' }}>EliteFit</Typography>
+        <List>
+      <ListItem button component="a" href='../musuario'>
         <ListItemIcon>
           <DirectionsRunIcon />
         </ListItemIcon>
-        <ListItemText primary="Informacion" />
+        <ListItemText primary="Usuarios" />
+      </ListItem>
+      <ListItem button component="a" href='../mplanes'>
+        <ListItemIcon>
+          <FitnessCenterIcon />
+        </ListItemIcon>
+        <ListItemText primary="Planes" />
       </ListItem>
     </List>
     <Divider />
