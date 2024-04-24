@@ -2,7 +2,7 @@ import React from 'react';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Typography } from '@mui/material';
 import {  FitnessCenter as FitnessCenterIcon, DirectionsRun as DirectionsRunIcon, SportsHandball as SportsHandballIcon , Logout as LogoutIcon } from '@mui/icons-material';
 import { red } from '@mui/material/colors';
-
+import {  Button } from '@mui/material';
 
 const Menu: React.FC = () => {
   return (
@@ -45,11 +45,11 @@ const Menu: React.FC = () => {
       <ListItem button>
         <ListItemIcon>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <LogoutIcon style={{ color: 'red', transform: 'rotate(180deg)', marginRight: '5px' }} />
-            <h1 style={{ color: 'red', fontSize: '20px' }}>Cerrar sesión</h1>
+            <Button href='../login' endIcon={<LogoutIcon style={{ color: 'red', transform: 'rotate(180deg)', marginRight: '5px' }} />}>
+            <h1 style={{ color: 'red', fontSize: '15px' }}>Cerrar sesión</h1>
+            </Button>
           </div>
         </ListItemIcon>
-        <ListItemText primary="Logout" style={{ color:'white'}}/>
       </ListItem>
     </List>
   </Drawer>
