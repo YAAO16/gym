@@ -14,7 +14,7 @@ import { table } from 'console';
 const PasePage: React.FC = () => {
   
   return (
-    <div style={{ display: 'flex', gap:'40px', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: 'black', display: 'flex', gap:'40px', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
     <div style={{ marginBottom: '20px' }}>
       <table>
         <tr>
