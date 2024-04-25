@@ -11,7 +11,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Menu as MenuIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 
-export default function CustomPaginationActionsTable() {
+export default function musuario() {
    const data = [
     { id: 1, name: 'Usuario 1', email: 'usuario1@example.com' },
     { id: 2, name: 'Usuario 2', email: 'usuario2@example.com' },
