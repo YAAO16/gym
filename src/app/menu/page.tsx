@@ -39,7 +39,7 @@ const Menu: React.FC = () => {
       <ListItem button>
         <ListItemIcon>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Button href='../login' endIcon={<LogoutIcon style={{ color: 'red', transform: 'rotate(180deg)', marginRight: '5px' }} />}>
+            <Button href='/login' endIcon={<LogoutIcon style={{ color: 'red', transform: 'rotate(180deg)', marginRight: '5px' }} />}>
             <h1 style={{ color: 'red', fontSize: '15px' }}>Cerrar sesión</h1>
             </Button>
           </div>
