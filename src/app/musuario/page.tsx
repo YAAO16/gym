@@ -12,43 +12,45 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
-import { Menu as MenuIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+import { Close as CloseIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 
 export default function Musuario() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     setPage(newPage);
-  };
+  };  
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  
 
   const data = [
-    { id: 1, name: 'Usuario 1', email: 'usuario1@example.com' },
-    { id: 2, name: 'Usuario 2', email: 'usuario2@example.com' },
-    { id: 3, name: 'Usuario 3', email: 'usuario3@example.com' },
-    { id: 4, name: 'Usuario 4', email: 'usuario4@example.com' },
-    { id: 5, name: 'Usuario 5', email: 'usuario5@example.com' },
-    { id: 6, name: 'Usuario 6', email: 'usuario6@example.com' },
-    { id: 7, name: 'Usuario 7', email: 'usuario7@example.com' },
-    { id: 8, name: 'Usuario 8', email: 'usuario8@example.com' },
-    { id: 9, name: 'Usuario 9', email: 'usuario9@example.com' },
-    { id: 10, name: 'Usuario 10', email: 'usuario10@example.com' },
-    { id: 11, name: 'Usuario 11', email: 'usuario11@example.com' },
-    { id: 12, name: 'Usuario 12', email: 'usuario12@example.com' },
+    { id: 1, name: 'Usuario 1', email: 'usuario1@example.com', password: 'contraseña1', phone: '1234567890' },
+    { id: 2, name: 'Usuario 2', email: 'usuario2@example.com', password: 'contraseña2', phone: '1234567890' },
+    { id: 3, name: 'Usuario 3', email: 'usuario3@example.com', password: 'contraseña3', phone: '1234567890' },
+    { id: 4, name: 'Usuario 4', email: 'usuario4@example.com', password: 'contraseña4', phone: '1234567890' },
+    { id: 5, name: 'Usuario 5', email: 'usuario5@example.com', password: 'contraseña5', phone: '1234567890' },
+    { id: 6, name: 'Usuario 6', email: 'usuario6@example.com', password: 'contraseña6', phone: '1234567890' },
+    { id: 7, name: 'Usuario 7', email: 'usuario7@example.com', password: 'contraseña7', phone: '1234567890' },
+    { id: 8, name: 'Usuario 8', email: 'usuario8@example.com', password: 'contraseña8', phone: '1234567890' },
+    { id: 9, name: 'Usuario 9', email: 'usuario9@example.com', password: 'contraseña9', phone: '1234567890' },
+    { id: 10, name: 'Usuario 10', email: 'usuario10@example.com', password: 'contraseña10', phone: '1234567890' },
+    { id: 11, name: 'Usuario 11', email: 'usuario11@example.com', password: 'contraseña11', phone: '1234567890' },
+    { id: 12, name: 'Usuario 12', email: 'usuario12@example.com', password: 'contraseña12', phone: '1234567890' },
   ];
+  
 
   const tableWidth = '60%';
   const tableHeight = 'auto';
 
   return (
     <>
-      <Box display="flex" justifyContent="flex-start" alignItems="center" mb={2}>
-        <Button startIcon={<MenuIcon />} variant="contained" href='./menu'>Menú</Button>
+      <Box display="flex" justifyContent="flex-end" alignItems="flex-start" mt={2} mr={2}>
+        <Button endIcon={<CloseIcon />} variant="contained" style={{ backgroundColor: '#FF1744', color: '#FFFFFF' }} href='./menu'></Button>
       </Box>
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="80vh">
         <Box width={tableWidth}>
@@ -60,6 +62,8 @@ export default function Musuario() {
                     <TableCell>ID</TableCell>
                     <TableCell>Nombre</TableCell>
                     <TableCell>Email</TableCell>
+                    <TableCell>Contraseña</TableCell>
+                    <TableCell>Celular</TableCell>
                     <TableCell>Acciones</TableCell>
                   </TableRow>
                 </TableHead>
@@ -72,6 +76,8 @@ export default function Musuario() {
                       <TableCell>{row.id}</TableCell>
                       <TableCell>{row.name}</TableCell>
                       <TableCell>{row.email}</TableCell>
+                      <TableCell>{row.password}</TableCell>
+                      <TableCell>{row.phone}</TableCell>
                       <TableCell>
                         <IconButton aria-label="editar">
                           <EditIcon style={{ color: '#1976D2' }} />

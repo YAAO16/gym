@@ -1,9 +1,24 @@
+'use client'
 import React from 'react';
+import { useState } from 'react';
 import { Grid, Typography, TextField, Button, Paper } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import {validateContra} from './Servercontra'
 
-const contraseña: React.FC = () => {
+const Contraseña: React.FC = () => {
+  const [username, setUsername] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  const handleContra = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const errorMessage = validateContra({ username });
+    if (errorMessage) {
+      setError(errorMessage);
+    } else {
+       window.location.href = '/preguntas';
+    }
+  };
   return (
     <Grid container style={{ height: '100vh', background: '#0c0c1b' }}>
       <Grid
@@ -16,15 +31,18 @@ const contraseña: React.FC = () => {
                 Recuperar Contraseña
               </Typography>
             </div>
-            <form style={{ textAlign: 'center' }}>
+            <form onSubmit={handleContra} style={{ textAlign: 'center' }}>
               <Typography variant="subtitle1">Buscar usuario</Typography>
               <TextField
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 variant="outlined"
                 fullWidth
                 margin="normal"
                 InputLabelProps={{ style: { color: '#FFA500' } }}
                 InputProps={{ style: { borderColor: '#ccc', backgroundColor: '#f9f9f9' } }}
               />
+              {error && <Typography variant="body2" color="white" gutterBottom>{error}</Typography>}
               <Button type="submit" variant="contained" style={{ backgroundColor: '#FFA500', marginTop: '1rem', fontSize: '15px', color: '#0c0c1b' }} endIcon={<SendIcon />}>
                 Ingresar
               </Button>
@@ -41,4 +59,4 @@ const contraseña: React.FC = () => {
   );
 };
 
-export default contraseña;
+export default Contraseña;

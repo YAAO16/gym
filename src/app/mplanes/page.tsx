@@ -9,7 +9,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Menu as MenuIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+import { Close as CloseIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 
 export default function mplanes() {
    const data = [
@@ -22,8 +22,8 @@ export default function mplanes() {
   const tableHeight = 'auto'; 
   return (
     <>
-      <Box display="flex" justifyContent="flex-start" alignItems="center" mb={2}>
-        <Button startIcon={<MenuIcon />} variant="contained" href='./menu'>Menú</Button>
+      <Box display="flex" justifyContent="flex-end" alignItems="flex-start" mt={2} mr={2}>
+        <Button endIcon={<CloseIcon />} variant="contained" style={{ backgroundColor: '#FF1744', color: '#FFFFFF' }} href='./menu'></Button>
       </Box>
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="80vh">
         <Box width={tableWidth}>
