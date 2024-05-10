@@ -5,7 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Close as CloseIcon } from '@mui/icons-material';
 
 export default function Planes() {
   const tableWidth = '60%'; 
@@ -18,9 +17,6 @@ export default function Planes() {
   ];
   return (
     <>
-            <Box display="flex" justifyContent="flex-end" alignItems="flex-start" mt={2} mr={2}>
-                <Button endIcon={<CloseIcon />} variant="contained" style={{ backgroundColor: '#FF1744', color: '#FFFFFF' }} href='./menu'></Button>
-            </Box>
             <Box style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>
                 {gymPlans.map((plan, index) => (
                     <Card key={index} sx={{ maxWidth: 280, marginRight: '20px', textAlign: 'center', fontSize:'11px' }}>
