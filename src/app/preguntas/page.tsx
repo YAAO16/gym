@@ -1,6 +1,7 @@
-'use client'
-import React, { useState } from 'react';
-import { Container, Grid, Paper, Select, MenuItem, TextField, Typography, Button } from '@mui/material';
+'use client';
+
+import React, { useState, ChangeEvent } from 'react';
+import { Container, Grid, Paper, Select, MenuItem, TextField, Typography, Button, SelectChangeEvent } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import validateAnswers from './Validacion';
 
@@ -16,13 +17,13 @@ function Page() {
     '¿Cuál es tu comida favorita?',
   ];
 
-  const handleQuestionSelect = (event: React.ChangeEvent<{ value: unknown }>, index: number) => {
+  const handleQuestionSelect = (event: SelectChangeEvent<string>, index: number) => {
     const newSelectedQuestions = [...selectedQuestions];
-    newSelectedQuestions[index] = event.target.value as string;
+    newSelectedQuestions[index] = event.target.value;
     setSelectedQuestions(newSelectedQuestions);
   };
 
-  const handleAnswerChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  const handleAnswerChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index: number) => {
     const newAnswers = [...answers];
     newAnswers[index] = event.target.value;
     setAnswers(newAnswers);
@@ -71,7 +72,7 @@ function Page() {
                     fullWidth
                     variant="outlined"
                     value={selectedQuestions[index]}
-                    onChange={(event) => handleQuestionSelect(event, index)}
+                    onChange={(event) => handleQuestionSelect(event as SelectChangeEvent<string>, index)}
                     displayEmpty
                     sx={{ color: '#FFA500' }}
                   >
@@ -85,12 +86,11 @@ function Page() {
                     ))}
                   </Select>
                   <TextField
-                    style={{color:'red'}}
                     fullWidth
                     variant="outlined"
                     value={answers[index]}
                     onChange={(event) => handleAnswerChange(event, index)}
-                    sx={{ '& .MuiOutlinedInput-root': { borderColor: '#FFA500', color:'#FFA500' } }}
+                    sx={{ '& .MuiOutlinedInput-root': { borderColor: '#FFA500', color: '#FFA500' }, mt: 2 }}
                   />
                 </React.Fragment>
               ))}
@@ -107,3 +107,6 @@ function Page() {
 }
 
 export default Page;
+
+
+
